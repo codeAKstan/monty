@@ -1,0 +1,83 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+/**
+ * struct stack_s - doubly linked list representation of a stack
+ * @n: integer
+ * @prev: points to the previous element of the stack
+ * @next: points to the next element of the stack
+ */
+typedef struct stack_s
+{
+    int n;
+    struct stack_s *prev;
+    struct stack_s *next;
+} stack_t;
+
+/**
+ * struct instruction_s - opcode and its function
+ * @opcode: the opcode
+ * @f: function to handle the opcode
+ */
+typedef struct instruction_s
+{
+    char *opcode;
+    void (*f)(stack_t **stack, unsigned int line_number);
+} instruction_t;
+
+/* Function prototypes */
+void push(stack_t **stack, int value, unsigned int line_number);
+void pall(stack_t **stack, unsigned int line_number);
+
+int main(int argc, char *argv[])
+{
+    /* Check if the correct number of arguments is provided */
+	(void)argv;
+    if (argc != 2)
+    {
+        fprintf(stderr, "USAGE: monty file\n");
+        exit(EXIT_FAILURE);
+    }
+
+    /* Open and read the Monty bytecode file */
+
+    /* Parse and execute the instructions from the file */
+
+    return 0;
+}
+
+/* Implement push opcode */
+void push(stack_t **stack, int value, unsigned int line_number)
+{
+    stack_t *new_node = malloc(sizeof(stack_t));
+    (void)line_number;
+    if (new_node == NULL)
+    {
+        fprintf(stderr, "Error: malloc failed\n");
+        exit(EXIT_FAILURE);
+    }
+
+    new_node->n = value;
+    new_node->prev = NULL;
+    new_node->next = *stack;
+
+    if (*stack != NULL)
+    {
+        (*stack)->prev = new_node;
+    }
+
+    *stack = new_node;
+}
+
+/* Implement pall opcode */
+void pall(stack_t **stack, unsigned int line_number)
+{
+    stack_t *current = *stack;
+    (void)line_number;
+
+    while (current != NULL)
+    {
+        printf("%d\n", current->n);
+        current = current->next;
+    }
+}

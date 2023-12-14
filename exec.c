@@ -7,7 +7,6 @@
 * @content: line content
 * Return: no return
 */
-bus_t bus;
 
 int execute(char *content, stack_t **stack, unsigned int counter, FILE *file)
 {

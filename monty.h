@@ -38,5 +38,12 @@ typedef struct instruction_s
 #include <string.h>
 #include <fcntl.h>
 #include <ctype.h>
+#include <limits.h>
+#include <stdbool.h>
+
+void push_func(stack_t **stack, unsigned int line_num, const char *instruction_line);
+void pall_func(stack_t **stack, unsigned int line_num);
+bool is_valid_integer(const char *str, int *result);
+char *extract_argument(const char *instruction_line);
 
 #endif

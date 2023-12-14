@@ -18,7 +18,7 @@ void push_func(stack_t **stack, unsigned int line_num)
 			i++;
 		}
 
-		for (i = 0; bus.arg[i] != '\0'; i++)
+		for (; bus.arg[i] != '\0'; i++)
 		{
 			if (bus.arg[i] > 57 || bus.arg[i] < 48)
 				flag = 1;

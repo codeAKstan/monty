@@ -55,7 +55,7 @@ void push_func(stack_t **stack, unsigned int line_num)
 
 void pall_func(stack_t **stack, unsigned int line_num)
 {
-	stack_t *current  = *stack;
+	stack_t *current = *stack;
 	(void)line_num;
 
 	if (current == NULL)

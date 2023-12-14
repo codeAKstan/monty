@@ -8,7 +8,7 @@ void pop_func(stack_t **stack, unsigned int line_num)
 {
 	stack_t *h;
 
-	if (*stck == NULL)
+	if (*stack == NULL)
 	{
 		fprintf(stderr, "L%d: can't pop an empty stack\n", line_num);
 		fclose(bus.file);

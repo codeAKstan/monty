@@ -64,4 +64,5 @@ void addqueue(stack_t **head, int n);
 int execute(char *content, stack_t **stack, unsigned int counter, FILE *file);
 void pint_func(stack_t **stack, unsigned int line_num);
 void pop_func(stack_t **stack, unsigned int line_num);
+void swap_func(stack_t **stack, unsigned int line_num);
 #endif
